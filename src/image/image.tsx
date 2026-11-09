@@ -45,21 +45,6 @@ const Image = React.forwardRef((props, ref) => {
     ignorePlaceholder: shouldIgnore,
   });
 
-  if (process.env.NODE_ENV !== 'production') {
-    // throw error if src is not provided
-    if (!src) {
-      throw new Error(
-        `Image is missing required "src" property. Make sure you pass "src" in props to the \`react-image-placeholder\` component.`
-      );
-    }
-
-    if (!intHeight || !intWidth) {
-      throw new Error(
-        `Image with src "${src}" must use unitless "width" and "height" properties.`
-      );
-    }
-  }
-
   // conditions for, `src` loading and if `src` fails
   if (!isLoaded) {
     if (placeholderSrc) return <img src={placeholderSrc} {...shared} />;
